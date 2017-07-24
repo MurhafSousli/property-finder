@@ -1,0 +1,10 @@
+<div class="app-wrapper" fxLayout="column" fxLayoutAlign="start center">
+  <div class="search-wrapper">
+    <app-search (search)="trip.search($event)"></app-search>
+  </div>
+  <div fxFlex class="result-wrapper">
+    <app-result [data]="trip.result$ | async"></app-result>
+  </div>
+</div>
+<div class="map-wrapper">
+</div>

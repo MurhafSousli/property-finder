@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import '~normalize.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+
+@include mat-core();
+$primary: mat-palette($mat-orange, 800);
+$accent: mat-palette($mat-light-blue, 600, A100, A400);
+$warn: mat-palette($mat-red, 600);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+body {
+  background-color: mat-color($primary, A400);
+}
+
+.app-wrapper {
+  height: 100vh;
+}
+
+.result-wrapper .mat-card {
+  padding: 0 !important;
+}
+
+.mat-list-item-content{
+  height: auto !important;
+}
+
+.results .mat-list{
+  flex: 1;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+
+md-list-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 10px;
+}
+
+
+.discount {
+  //color: mat-color($primary, A400);
+  font-style: italic;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.mat-chip{
+  width: 80px;
+  text-align: center;
+}

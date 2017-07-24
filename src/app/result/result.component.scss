@@ -1,0 +1,67 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@mixin md-icon-size($size: 24px) {
+  font-size: $size !important;
+  height: $size !important;
+  width: $size !important;
+}
+
+.deal-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.deal-stations {
+  height: 30px;
+  font-weight: bold;
+  padding: 0 1em;
+}
+
+.deal-desc {
+  margin-top: 1em;
+}
+
+.deal-transport {
+  font-weight: bold;
+  padding: 0 2em;
+  .line {
+    position: relative;
+    md-icon {
+      position: relative;
+      z-index: 20;
+    }
+    &:before {
+      z-index: 10;
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: rgba(lightgray, 0.5);
+    }
+  }
+}
+
+.transport-point {
+  .mat-icon {
+    @include md-icon-size(16px);
+  }
+}
+
+.deal-duration, .deal-reference {
+  margin-bottom: 7px;
+}
+
+.deal-reference{
+
+}
+.deal-duration {
+
+}

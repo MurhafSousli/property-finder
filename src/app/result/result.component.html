@@ -1,0 +1,96 @@
+<md-card>
+  <md-list>
+    <md-list-item>
+      <div md-line>
+        <b fxFlex fxLayout fxLayoutAlign="space-around center">Total</b>
+
+        <md-chip-list fxFlex fxLayout fxLayoutAlign="center center">
+          <md-chip color="warn">
+            08h 15m
+          </md-chip>
+
+        </md-chip-list>
+        <md-chip-list fxFlex fxLayout fxLayoutAlign="center center">
+          <md-chip color="primary">
+            480 €
+          </md-chip>
+        </md-chip-list>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-card>
+
+<md-card fxLayout="column" fxFlex class="results">
+  <md-list>
+    <md-list-item *ngFor="let deal of data?.deals">
+
+      <div md-line class="deal-item">
+
+        <div class="deal-line">
+
+          <div class="deal-transport" fxLayout fxLayoutAlign="space-between center">
+            <md-icon class="transport-point">radio_button_checked</md-icon>
+
+            <span fxFlex fxLayout fxLayoutAlign="center center" class="line" [ngSwitch]="deal.transport">
+              <md-icon md-list-icon *ngSwitchCase="'bus'">directions_bus</md-icon>
+              <md-icon md-list-icon *ngSwitchCase="'car'">directions_car</md-icon>
+              <md-icon md-list-icon *ngSwitchCase="'train'">directions_transit</md-icon>
+            </span>
+            <md-icon class="transport-point">radio_button_unchecked</md-icon>
+          </div>
+
+          <div class="deal-stations" fxLayout fxLayoutAlign="space-between center">
+            <span>{{ deal.arrival }}</span>
+            <span fxFlex="1"></span>
+            <span>{{ deal.departure }}</span>
+          </div>
+        </div>
+
+        <div fxLayout class="deal-desc">
+
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <!-- DURATION -->
+            <div class="deal-duration">
+              <!--<md-icon>timer</md-icon>-->
+              <md-chip-list>
+                <md-chip color="dark">
+                  <span *ngIf="deal.duration.h !== '00'">{{ deal.duration.h }}h </span>
+                  <span *ngIf="deal.duration.m !== '00'">{{ deal.duration.m }}m</span>
+                </md-chip>
+              </md-chip-list>
+            </div>
+            <small>Duration</small>
+          </div>
+
+          <!-- REFERENCE -->
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <div class="deal-reference" fxFlex>
+              <md-chip-list>
+                <md-chip color="primary" selected="true">{{ deal.reference }}</md-chip>
+              </md-chip-list>
+            </div>
+
+            <small>Reference</small>
+          </div>
+
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <div class="deal-reference" fxFlex>
+              <!-- COST -->
+              <md-chip-list>
+                <md-chip color="accent" selected="true">
+                  <span [class.discount]="deal.discount">{{ deal.cost }} €</span>
+                  <!-- DISCOUNT -->
+                  <span *ngIf="deal.discount"> {{ deal.discount }} €</span>
+                </md-chip>
+              </md-chip-list>
+            </div>
+            <small>Cost</small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </md-list-item>
+  </md-list>
+</md-card>

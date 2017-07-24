@@ -1,0 +1,38 @@
+<form class="search-form" novalidate (ngSubmit)="onSubmit()">
+  <md-card>
+    <md-card-title>
+      Search
+    </md-card-title>
+    <md-card-content>
+
+      <div class="search-inputs" fxLayout fxLayoutGap="30px">
+        <md-input-container fxFlex>
+          <input type="text" mdInput placeholder="From" [value]="form.from" (input)="form.from = $event.target.value">
+        </md-input-container>
+
+
+        <md-input-container fxFlex>
+          <input type="text" mdInput placeholder="To" [value]="form.to" (input)="form.to = $event.target.value">
+        </md-input-container>
+      </div>
+
+      <div fxLayout fxLayoutGap="30px">
+        <md-button-toggle-group color="accent" [value]="form.filter"
+                                (change)="form.filter = $event.value">
+          <md-button-toggle value="cheapest">
+            <md-icon>attach_money</md-icon> Cheapest
+          </md-button-toggle>
+          <md-button-toggle value="fastest">
+            <md-icon>av_timer</md-icon> Fastest
+          </md-button-toggle>
+        </md-button-toggle-group>
+
+        <div fxFlex fxLayout fxLayoutAlign="end center">
+          <button type="submit" md-raised-button color="primary">Search</button>
+        </div>
+
+      </div>
+    </md-card-content>
+  </md-card>
+
+</form>

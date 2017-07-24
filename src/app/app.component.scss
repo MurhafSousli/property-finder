@@ -1,0 +1,14 @@
+
+.search-wrapper, .result-wrapper {
+  margin: 1em;
+  min-width: 400px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.app-wrapper {
+  padding: 1em;
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+}
