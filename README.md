@@ -1,2 +1,0 @@
-# property-finder
-Property Finder
